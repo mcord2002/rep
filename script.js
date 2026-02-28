@@ -1,0 +1,175 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- PORTFOLIO PROJECTS DATA ---
+    // You can easily add your new websites/projects here!
+    // Just copy an existing block, paste it at the end, and change the details.
+    const projectsData = [
+        {
+            title: "Floranest",
+            image: "plant.png",
+            description: "Floranest is a mobile-based e-commerce application designed for buying and selling plants online. The app connects plant sellers with customers and provides a smooth platform to browse plants, view details, and place orders easily.",
+            colorTheme: "emerald", // Available colors: 'brand', 'purple', 'emerald', 'red', 'blue', 'orange'
+            delay: "", // Animation delay. Keep empty or use "delay-100" for staggering cards
+            githubLink: "https://github.com/mcord2002/Hotel.git",
+            liveLink: "https://vt.tiktok.com/ZSmWkQWHg/",
+            tags: ["Mobile App", "E-commerce"]
+        },
+        {
+            title: "Ladyfly Website",
+            image: "assets/ladyfly.png",
+            description: "An elegant, highly responsive e-commerce platform designed specifically for a modern fashion brand.",
+            colorTheme: "purple",
+            delay: "delay-100",
+            githubLink: "#",
+            liveLink: "#",
+            tags: ["HTML/CSS", "Tailwind", "JS"]
+        },
+        {
+            title: "Finance Tracker",
+            image: "assets/finance.png",
+            description: "A comprehensive dashboard to track personal expenses, visualize spending patterns, and manage budgets efficiently.",
+            colorTheme: "emerald",
+            delay: "",
+            githubLink: "#",
+            liveLink: null,
+            tags: ["React", "Chart.js"]
+        },
+        {
+            title: "Smart Blood System",
+            image: "assets/smartblood.png",
+            description: "A centralized management system to seamlessly connect blood donors with hospitals and recipients in real-time.",
+            colorTheme: "red",
+            delay: "delay-100",
+            githubLink: "#",
+            liveLink: null,
+            tags: ["Fullstack", "Node.js"]
+        }
+    ];
+
+    // Render Projects Dynamically
+    const projectsContainer = document.getElementById('projects-container');
+    if (projectsContainer) {
+        projectsData.forEach((project, index) => {
+            // Setup Links HTML
+            let linksHTML = '';
+            if (project.githubLink) {
+                linksHTML += `
+                    <a href="${project.githubLink}" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-${project.colorTheme}-500 hover:text-white transition-all text-gray-400">
+                        <i class="fa-brands fa-github"></i>
+                    </a>`;
+            }
+            if (project.liveLink) {
+                linksHTML += `
+                    <a href="${project.liveLink}" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-${project.colorTheme}-500 hover:text-white transition-all text-gray-400">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>`;
+            }
+
+            // Setup Tags HTML
+            const tagsHTML = project.tags.map(tag =>
+                `<span class="text-xs font-semibold px-3 py-1 bg-${project.colorTheme}-500/10 text-${project.colorTheme}-400 rounded-full border border-${project.colorTheme}-500/20">${tag}</span>`
+            ).join('');
+
+            // Generate Project Card HTML
+            const projectCard = `
+                <div class="glass-card rounded-2xl overflow-hidden group reveal ${project.delay}">
+                    <div class="project-img-wrapper h-64 w-full relative">
+                        <div class="absolute inset-0 bg-${project.colorTheme}-900/40 mix-blend-overlay group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover top-object" onerror="this.src='https://images.unsplash.com/photo-1604762524889-3e2fcc145683?q=80&w=800&auto=format&fit=crop'">
+                    </div>
+                    <div class="p-8 relative z-20">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-2xl font-bold text-white group-hover:text-${project.colorTheme}-400 transition-colors">${project.title}</h4>
+                            <div class="flex gap-2">
+                                ${linksHTML}
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-6">${project.description}</p>
+                        <div class="flex flex-wrap gap-2">
+                            ${tagsHTML}
+                        </div>
+                    </div>
+                </div>`;
+
+            projectsContainer.innerHTML += projectCard;
+        });
+    }
+
+    // Mobile Menu Toggle
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    const icon = btn.querySelector('i');
+
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+        if (menu.classList.contains('hidden')) {
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        } else {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
+        }
+    });
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.add('hidden');
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        });
+    });
+
+    // Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Active Navigation Link Update on Scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // Scroll Reveal Animation via Intersection Observer
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Remove observer once revealed
+            }
+        });
+    }, revealOptions);
+
+    revealElements.forEach(el => {
+        revealObserver.observe(el);
+    });
+
+});
