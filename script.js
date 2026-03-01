@@ -73,18 +73,18 @@ document.addEventListener('DOMContentLoaded', () => {
             // Generate Project Card HTML
             const projectCard = `
                 <div class="glass-card rounded-2xl overflow-hidden group reveal ${project.delay}">
-                    <div class="project-img-wrapper h-64 w-full relative">
+                    <div class="project-img-wrapper h-48 sm:h-56 md:h-64 w-full relative">
                         <div class="absolute inset-0 bg-${project.colorTheme}-900/40 mix-blend-overlay group-hover:bg-transparent transition-colors z-10"></div>
                         <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover top-object" onerror="this.src='https://images.unsplash.com/photo-1604762524889-3e2fcc145683?q=80&w=800&auto=format&fit=crop'">
                     </div>
-                    <div class="p-8 relative z-20">
+                    <div class="p-6 md:p-8 relative z-20">
                         <div class="flex items-center justify-between mb-4">
-                            <h4 class="text-2xl font-bold text-white group-hover:text-${project.colorTheme}-400 transition-colors">${project.title}</h4>
+                            <h4 class="text-xl md:text-2xl font-bold text-white group-hover:text-${project.colorTheme}-400 transition-colors">${project.title}</h4>
                             <div class="flex gap-2">
                                 ${linksHTML}
                             </div>
                         </div>
-                        <p class="text-gray-400 mb-6">${project.description}</p>
+                        <p class="text-gray-400 mb-6 text-sm md:text-base">${project.description}</p>
                         <div class="flex flex-wrap gap-2">
                             ${tagsHTML}
                         </div>
@@ -101,7 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileLinks = document.querySelectorAll('.mobile-nav-link');
     const icon = btn.querySelector('i');
 
-    btn.addEventListener('click', () => {
+    // Handle mobile menu toggle with both click and touch events
+    const toggleMenu = () => {
         menu.classList.toggle('hidden');
         if (menu.classList.contains('hidden')) {
             icon.classList.remove('fa-xmark');
@@ -109,6 +110,17 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             icon.classList.remove('fa-bars');
             icon.classList.add('fa-xmark');
+        }
+    };
+
+    btn.addEventListener('click', toggleMenu);
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target) && !btn.contains(e.target) && !menu.classList.contains('hidden')) {
+            menu.classList.add('hidden');
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
         }
     });
 
@@ -171,5 +183,20 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => {
         revealObserver.observe(el);
     });
+
+    // Fix viewport height for mobile devices (address bar issue)
+    const setVH = () => {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    setVH();
+    window.addEventListener('resize', setVH);
+    window.addEventListener('orientationchange', setVH);
+
+    // Improve touch scroll performance on mobile
+    if ('ontouchstart' in window) {
+        document.body.style.cursor = 'pointer';
+    }
 
 });
