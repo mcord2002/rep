@@ -25,24 +25,34 @@ document.addEventListener('DOMContentLoaded', () => {
             tags: ["Mobile App", "E-commerce"]
         },
         {
-            title: "Finance Tracker",
-            image: "assets/finance.png",
-            description: "A comprehensive dashboard to track personal expenses, visualize spending patterns, and manage budgets efficiently.",
-            colorTheme: "emerald",
-            delay: "",
-            githubLink: "#",
-            liveLink: null,
-            tags: ["React", "Chart.js"]
+            title: "Café Experience – Cafe Freshbrew",
+            image: "cafe.png",
+            description: "I gained hands-on experience working at Cafe Freshbrew, supporting daily café operations, handling customer orders, and helping maintain service quality. This experience improved my teamwork, communication, and customer service skills in a real working environment.",
+            colorTheme: "emerald", 
+            delay: "", 
+            githubLink: "https://github.com/mcord2002/Hotel.git",
+            liveLink: "https://vt.tiktok.com/ZSmvFhPyh/",
+            tags: ["Mobile App", "E-commerce"]
         },
         {
-            title: "Smart Blood System",
-            image: "assets/smartblood.png",
-            description: "A centralized management system to seamlessly connect blood donors with hospitals and recipients in real-time.",
-            colorTheme: "red",
-            delay: "delay-100",
-            githubLink: "#",
-            liveLink: null,
-            tags: ["Fullstack", "Node.js"]
+            title: "Food Management Experience",
+            image: "food.png",
+            description: "I have experience assisting in café food management, including handling customer orders, supporting daily operations, and maintaining service quality. This role helped me develop teamwork, responsibility, and customer service skills in a fast-paced environment.",
+            colorTheme: "emerald", 
+            delay: "", 
+            githubLink: "https://github.com/mcord2002/Hotel.git",
+            liveLink: "https://vt.tiktok.com/ZSmvFhPyh/",
+            tags: ["Mobile App", "E-commerce"]
+        },
+          {
+            title: "Hotel Management System",
+            image: "hotel.png",
+            description: "I developed a Hotel Management System to streamline hotel operations such as room booking, customer management, and payment handling. This project helped me gain experience in system design, database management, and building user-friendly interfaces.",
+            colorTheme: "emerald", 
+            delay: "", 
+            githubLink: "https://github.com/mcord2002/Hotel.git",
+            liveLink: "https://vt.tiktok.com/ZSmvFhPyh/",
+            tags: ["Mobile App", "E-commerce"]
         }
     ];
 
