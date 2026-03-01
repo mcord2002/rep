@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: "Teaching / Tuition Experience",
-            image: "class.png",
+            image: "class.png",// Replace with your project image
             description: "I conduct tuition classes for school students, helping them understand subjects clearly and improve their academic performance. This experience has strengthened my communication, leadership, and problem-solving skills.",
             colorTheme: "emerald", 
             delay: "", 
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: "Café Experience – Cafe Freshbrew",
-            image: "cafe.png",
+            image: "cafe.png",// Replace with your project image
             description: "I gained hands-on experience working at Cafe Freshbrew, supporting daily café operations, handling customer orders, and helping maintain service quality. This experience improved my teamwork, communication, and customer service skills in a real working environment.",
             colorTheme: "emerald", 
             delay: "", 
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: "Food Management Experience",
-            image: "food.png",
+            image: "food.png",// Replace with your project image
             description: "I have experience assisting in café food management, including handling customer orders, supporting daily operations, and maintaining service quality. This role helped me develop teamwork, responsibility, and customer service skills in a fast-paced environment.",
             colorTheme: "emerald", 
             delay: "", 
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
           {
             title: "Hotel Management System",
-            image: "hotel.png",
+            image: "hotel.png",// Replace with your project image
             description: "I developed a Hotel Management System to streamline hotel operations such as room booking, customer management, and payment handling. This project helped me gain experience in system design, database management, and building user-friendly interfaces.",
             colorTheme: "emerald", 
             delay: "", 
