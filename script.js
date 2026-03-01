@@ -15,14 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
             tags: ["Mobile App", "E-commerce"]
         },
         {
-            title: "Ladyfly Website",
-            image: "assets/ladyfly.png",
-            description: "An elegant, highly responsive e-commerce platform designed specifically for a modern fashion brand.",
-            colorTheme: "purple",
-            delay: "delay-100",
-            githubLink: "#",
-            liveLink: "#",
-            tags: ["HTML/CSS", "Tailwind", "JS"]
+            title: "Teaching / Tuition Experience",
+            image: "class.png",
+            description: "I conduct tuition classes for school students, helping them understand subjects clearly and improve their academic performance. This experience has strengthened my communication, leadership, and problem-solving skills.",
+            colorTheme: "emerald", 
+            delay: "", 
+            githubLink: "https://github.com/mcord2002/Hotel.git",
+            liveLink: "https://vt.tiktok.com/ZSmvFhPyh/",
+            tags: ["Mobile App", "E-commerce"]
         },
         {
             title: "Finance Tracker",
